@@ -1,9 +1,11 @@
-// ignore_for_file: deprecated_member_use
-
+import 'package:connectionapp/login/Facebook.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_signin_button/button_list.dart';
 import 'package:flutter_signin_button/button_view.dart';
+import 'Google.dart';
 import 'SignUp.dart';
+import 'Forgot.dart';
+import 'Facebook.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -53,8 +55,24 @@ class HomePage extends StatelessWidget {
             const SizedBox(
               height: 5,
             ),
-            FlatButton(
-              onPressed: () {},
+            // FlatButton(
+            //   onPressed: () {},
+            //   child: const Text(
+            //     "Forgot your password?",
+            //     style: TextStyle(
+            //       color: Color(0xFF1F849E),
+            //       fontSize: 16,
+            //     ),
+            //   ),
+
+            // ),
+            GestureDetector(
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => const Forgot()),
+                );
+              },
               child: const Text(
                 "Forgot your password?",
                 style: TextStyle(
@@ -64,7 +82,7 @@ class HomePage extends StatelessWidget {
               ),
             ),
             const SizedBox(
-              height: 50,
+              height: 90,
             ),
             const Text(
               "or connect with",
@@ -89,7 +107,13 @@ class HomePage extends StatelessWidget {
                               BorderRadius.all(Radius.circular(30.0))),
                       text: 'Facebook',
                       padding: const EdgeInsets.fromLTRB(10, 0, 10, 0),
-                      onPressed: () {},
+                      onPressed: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => const Facebook_page()),
+                        );
+                      },
                     ),
                   ),
                 ),
@@ -102,12 +126,18 @@ class HomePage extends StatelessWidget {
                         borderRadius: BorderRadius.all(Radius.circular(30.0))),
                     text: 'Google',
                     padding: const EdgeInsets.fromLTRB(20, 0, 10, 0),
-                    onPressed: () {},
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => const Google_page()),
+                      );
+                    },
                   ),
                 ),
               ],
             ),
-            const SizedBox(height: 10),
+            const SizedBox(height: 20),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
@@ -118,48 +148,34 @@ class HomePage extends StatelessWidget {
                     fontSize: 16,
                   ),
                 ),
-                FlatButton(
-                  onPressed: () {},
-                  child: const Text(
-                    "Sign up",
-                    style: TextStyle(
-                      fontSize: 16,
-                      color: Color(0xFF1F849E),
+                Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: GestureDetector(
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => const SingUp()),
+                      );
+                    },
+                    child: const Text(
+                      "Sign up",
+                      style: TextStyle(
+                        color: Color(0xFF1F849E),
+                        fontSize: 16,
+                      ),
                     ),
                   ),
                 ),
-                // GestureDetector(
-                //   child: const Text("Don't have account?"),
-                //   onTap: () {
-                //     Navigator.of(context).pushReplacement(MaterialPageRoute(
-                //         builder: (BuildContext context) => const SingUp()));
-                //   },
-                // const Padding(
-                //   padding: const EdgeInsets.fromLTRB(0, 0, 13, 0),
+                // FlatButton(
+                //   onPressed: () {},
                 //   child: const Text(
-                //     "Don't have account?",
+                //     "Sign up",
                 //     style: TextStyle(
-                //       fontWeight: FontWeight.normal,
-                //       color: const Color(0xFF787D84),
-                //       fontSize: 15,
-                //       onTap: () {
-                //         Navigator.of(context).pushReplacement(
-                //             MaterialPageRoute(
-                //                 builder: (BuildContext context) =>
-                //                     const SingUp()));
-                //       },
+                //       fontSize: 16,
+                //       color: Color(0xFF1F849E),
                 //     ),
                 //   ),
                 // ),
-                // const Text(
-                //   "Sign up",
-                //   style: TextStyle(
-                //     fontWeight: FontWeight.normal,
-                //     color: const Color(0xFF1F849E),
-                //     fontSize: 15,
-                //   ),
-                // ),
-                //)
               ],
             ),
           ],
